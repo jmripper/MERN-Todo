@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { v4 as uuidv4 } from 'uuid';
+import path from "path";
 
 var fakeTodos = [{
     id: 'ae06181d-92c2-4fed-a29d-fb53a6301eb9',
@@ -77,6 +78,12 @@ app.delete('/todos/:id', (req, res) => {
     const removedTodo = fakeTodos.find(todo => todo.id === id);
     fakeTodos = fakeTodos.filter(todo => todo.id !== id);
     res.status(200).json(removedTodo);
+});
+
+//STATIC Files
+app.use(express.static(path.join(__dirname, "../build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build"));
 });
 
 app.listen(8080, () => console.log("Server listening on port 8080"));
