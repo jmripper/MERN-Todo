@@ -36,15 +36,21 @@ const RemoveButton = styled(Button)`
 `;
 
 const TodoListItem = ({ todo, onRemovePressed, onCompletedPressed }) => {
-    return (
-        <TodoItemContainer>
-            <h3>{todo.text}</h3>
-            <ButtonsContainer>
-                <CompletedButton onClick={() => onCompletedPressed(todo.text)}>Mark As Complete</CompletedButton>
-                <RemoveButton onClick={() => onRemovePressed(todo.text)}>Remove</RemoveButton>
-            </ButtonsContainer>
-        </TodoItemContainer>
-    )
-}
+  return (
+    <TodoItemContainer>
+      <h3>{todo.text}</h3>
+      <ButtonsContainer>
+        {todo.isCompleted ? null : (
+          <CompletedButton onClick={() => onCompletedPressed(todo.text)}>
+            Mark As Completed
+          </CompletedButton>
+        )}
+        <RemoveButton onClick={() => onRemovePressed(todo.text)}>
+          Remove
+        </RemoveButton>
+      </ButtonsContainer>
+    </TodoItemContainer>
+  );
+};
 
 export default TodoListItem;
