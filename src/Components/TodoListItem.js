@@ -35,13 +35,13 @@ const RemoveButton = styled(Button)`
   margin-left: 8px;
 `;
 
-const TodoListItem = ({ todo }) => {
+const TodoListItem = ({ todo, onRemovePressed, onCompletedPressed }) => {
     return (
         <TodoItemContainer>
             <h3>{todo.text}</h3>
             <ButtonsContainer>
                 <CompletedButton>Mark As Complete</CompletedButton>
-                <RemoveButton>Remove</RemoveButton>
+                <RemoveButton onClick={() => onRemovePressed(todo.text)}>Remove</RemoveButton>
             </ButtonsContainer>
         </TodoItemContainer>
     )
