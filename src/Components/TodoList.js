@@ -4,7 +4,7 @@ import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 import NewTodoForm from "./NewTodoForm";
 import { removeTodo, markTodoAsCompleted } from "./actions";
-import { loadTodos } from "./thunks";
+import { loadTodos, removeTodoRequest } from "./thunks";
 
 const ListWrapper = styled.div`
   max-width: 700px;
@@ -46,7 +46,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   startLoadingTodos: () => dispatch(loadTodos()),
-  onRemovePressed: text => dispatch(removeTodo(text)),
+  onRemovePressed: id => dispatch(removeTodoRequest(id)),
   onCompletedPressed: text => dispatch(markTodoAsCompleted(text))
 });
 
