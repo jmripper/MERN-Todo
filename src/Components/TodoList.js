@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 import NewTodoForm from "./NewTodoForm";
-import { removeTodo } from "./actions";
+import { removeTodo, markTodoAsCompleted } from './actions';
 
 const ListWrapper = styled.div`
   max-width: 700px;
