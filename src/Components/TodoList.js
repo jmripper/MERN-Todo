@@ -4,7 +4,6 @@ import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 import NewTodoForm from "./NewTodoForm";
 import {
-  getTodos,
   getTodosLoading,
   getCompletedTodos,
   getIncompleteTodos
@@ -27,19 +26,21 @@ const TodoList = ({ completedTodos, incompleteTodos, onRemovePressed, onComplete
   
   const loadingMessage = <div>Loading todos...</div>;
   const content = (
-      <div className="list-wrapper">
+      <ListWrapper>
           <NewTodoForm />
           <h3>Incomplete:</h3>
           {incompleteTodos.map(todo => <TodoListItem
+              key={todo.id}
               todo={todo}
               onRemovePressed={onRemovePressed}
               onCompletedPressed={onCompletedPressed}/>)}
           <h3>Completed:</h3>
           {completedTodos.map(todo => <TodoListItem
+              key={todo.id}
               todo={todo}
               onRemovePressed={onRemovePressed}
               onCompletedPressed={onCompletedPressed}/>)}
-      </div>
+      </ListWrapper>
   );
   return isLoading ? loadingMessage : content;
 };

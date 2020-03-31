@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx webpack-dev-server --mode development",
-    "build": "npx webpack --mode development",
-    "server": "npx babel-node backend/server.js"
+    "server": "npx babel-node backend/server.js",
+    "build": "npx webpack --mode production && npx babel-node backend/server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^4.0.3",
     "react-hot-loader": "^4.12.20",
     "style-loader": "^1.1.3",
     "webpack": "^4.42.1",
