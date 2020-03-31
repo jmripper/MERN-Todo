@@ -41,7 +41,7 @@ const TodoListItem = ({ todo, onRemovePressed, onCompletedPressed }) => {
       <h3>{todo.text}</h3>
       <ButtonsContainer>
         {todo.isCompleted ? null : (
-          <CompletedButton onClick={() => onCompletedPressed(todo.text)}>
+          <CompletedButton onClick={() => onCompletedPressed(todo.id)}>
             Mark As Completed
           </CompletedButton>
         )}
